@@ -1,0 +1,737 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* ------- end reset code -------- */
+/* ------- body -------- */
+html{
+    width: 100%;
+    background-color: rgba(122, 191, 191, .5);
+}
+body{
+    max-width: 414px;
+    margin: 0 auto;
+    background-color: #F2F2F2;
+    display: grid;
+    grid-template-areas: 
+    "navigation"
+    "header"
+    "details"
+    "ingredients"
+    "directions"
+    "aside"
+    "footer";
+    margin-bottom: 20px;
+}
+h1, h2, h3, nav a, nav span, menu li, #social li, footer{
+    font-family: 'Bebas Neue', sans-serif; 
+    text-transform: uppercase;
+}
+h1{
+    font-family: 'Bebas Neue', sans-serif; 
+    font-size: 40px;
+    text-transform: uppercase;
+    padding: 10px 0 20px 0;
+}
+h2{
+    font-size: 30px;
+    padding: 20px 0 15px 0
+}
+h3{
+    font-size: 25px;
+}
+h1, h2{
+    text-align: center;
+}
+nav a, nav span, menu li, #social li, footer{
+    font-size: 20px;
+}
+p, dt, dd, li, nav, input{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+/* ------- header -------- */
+header{
+    grid-area: header;
+    margin-top: 90px;
+}
+header img{
+    width:100%;
+    margin: 0;
+}
+header p {
+    margin: 10px;
+    line-height: 1.5em;
+    padding-top: 5px;
+}
+/* ------- details -------- */
+#details {
+    grid-area: details;
+}
+dl{
+    display:flex;
+    flex-flow: row wrap;
+    margin-left: 10px;
+}
+dd {
+    flex-grow: 1;
+    flex: 70%;
+}
+dt, dd{
+    padding: 5px;
+}
+dt{
+    font-weight: 700;
+}
+/* ------- ingredients -------- */
+#ingredients{
+    grid-area: ingredients;
+    margin-left: 10px;
+}
+#ingredients ul{
+    margin-left: 20px;
+}
+#ingredients li{
+    list-style-type: square;
+    padding: 10px 0 0 10px;
+}
+ol li{
+    list-style-type: decimal;
+    padding: 10px 5px;
+    margin-left: 30px;
+}
+/* ------- directions -------- */
+#directions{
+    padding-bottom: 5px;
+}
+ol {
+    line-height: 1.5em;
+}
+/* ------- aside -------- */
+aside{
+    grid-area: aside;
+    background-color: #7ABFBF;
+    padding: 0 10px; 
+}
+aside img{
+    width: 75%;
+} 
+.dish {
+    display: grid;
+    grid-template-areas:
+    "photo name"
+    "photo desc"
+    "photo rating"
+    "photo stars";
+    grid-template-columns: 120px auto; 
+    padding: 15px 0;
+}
+.dish h3{
+    grid-area: name;
+    padding-bottom: 10px;
+}
+.dish img{
+    grid-area: photo;
+}
+.dish p:first-of-type{
+    grid-area: desc;
+    padding-bottom: 8px;
+}
+.dish p:last-of-type{
+    grid-area: rating;
+    padding-bottom: 5px;
+}
+.stars{
+    grid-area: stars;
+    padding-bottom: 5px;
+}
+.hiddenRating{
+    visibility: collapse;
+}
+aside p:nth-of-type(2){
+    font-weight: bold;
+}
+/* ------- navs -------- */
+nav h2{
+    visibility: hidden;
+    line-height: 0;
+    position:absolute;
+}
+li a{
+    text-decoration: none;
+    color: #EB5428;
+    text-transform: uppercase;
+}
+menu, #social ul{
+    display:flex;
+    margin-bottom: 10px;
+}
+menu li, #social li{
+    display: inline-block;
+    flex-grow: 1;
+}
+menu li a, #social li a{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+}
+#social li a svg, menu li a svg{
+    margin: 0 auto;
+}
+/* ------- mainNav -------- */
+nav img{
+    height: 80px;
+}
+#menuBar{
+    display: grid;
+    grid-template-areas: "menu home avatar";
+    grid-template-columns: 1fr 2fr 1fr;
+    width: 414px;
+}
+.search, #home, #avatar, .dropdown{
+    padding-top:13px;
+    display: grid;
+    flex-direction: column;
+}
+.search{
+    margin: auto auto;
+}
+#home{
+    grid-area: home;
+    width: 100%;
+    height: 100%;
+    background-color: #EB5428;
+}
+#home a{
+    margin: auto;
+}
+.dropdown, #avatar p{
+    font-size: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    margin: 0 auto
+}
+#avatar{
+    grid-area: avatar;
+}
+#avatar a, .dropdown a{
+    text-decoration: none;
+    color:black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+#avatar svg{
+    margin: auto auto;
+}
+nav {
+    background-color: #ffffff;
+    grid-area: navigation;
+    width: 414px;
+    height: 90px; 
+    position: relative;
+    box-shadow: 0 4px 3px 0px rgb(213, 213, 213);
+}
+nav ul li{
+    text-align: center;
+    width: 414px;
+}
+nav ul li:hover {
+    background-color: #ffffff;
+}
+nav li a{
+    display:flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ffffff;
+    position:relative;
+    z-index: 10;
+    padding: 5px;
+}
+nav img{
+    margin: 0 auto;
+    padding-bottom: 6px;
+}
+nav ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    display: block;
+    width: 414px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 90px;
+}
+nav ul label {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    margin: auto;
+    grid-area: menu;
+    text-align: center;
+}
+label span {
+    background-color: #ffffff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background-color .2s ease-out;
+    width: 18px;
+}
+label span:before, label span:after {
+    background: #ffffff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+label span:before {
+    top: 5px;
+}
+label span:after {
+    top: -5px;
+}
+nav input:nth-child(2) {
+    display: none;
+}
+nav input:nth-child(2):checked ~ ul {
+    max-height: 850px;
+}
+nav ul input:checked ~ label span {
+    background: none;
+}
+nav ul input:checked ~ label span:before {
+    transform: rotate(-45deg);
+}
+nav ul input:checked ~ label span:after {
+    transform: rotate(45deg);
+}
+nav ul input:checked ~ label:not(.steps) span:before, nav input:checked ~ label:not(.steps) span:after {
+    top: 0;
+}
+#search{
+    margin: 20px auto;
+    width: 80%;
+    display: flex;
+    padding: 20px 0;
+    grid-area: search;
+}
+#search h3{
+    display: none;
+    height: 0;
+}
+#search input{
+    border: solid 2px #EB5428;
+    width: 90%;
+    outline: none;
+}
+#search button{
+    display:inline-block;
+    border: none;
+    padding: 0 5px;
+    background-clip: border-box;
+    background-color: #EB5428;
+}
+::placeholder{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+/* ------- footer -------- */
+footer{
+    grid-area: footer;
+    text-align: center;
+    position: relative;
+    background-color: #ffffff;
+}
+footer h2, footer h3{
+    visibility: hidden;
+    line-height: 0;
+}
+#copyright{
+    display:flex;
+    flex-direction: column-reverse;
+    padding: 20px 0 10px 0;
+}
+footer img{
+    width: 200px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+small{
+    bottom: 5px;
+    text-align:center;
+}
+/* ------- usability -------- */
+#menuBar li a:hover{
+    background-color: #7ABFBF;
+    border-radius: 5px;
+}
+menu li a:hover{
+    background-color: #ffffff;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+#search input:hover, #search button:hover{
+    outline: solid 5px #ffffff;
+    border-radius: 5px;
+}
+#social li a:hover{
+    background-color: #F2F2F2;
+    transform: scale(1.1);
+    border-radius: 5px;
+}
+.dish:hover{
+    background-color: #73b2b2;
+    border-radius: 5px;
+}
+
+/* ------- media queries -------- */
+@media screen and (min-width:768px), print {
+    body{
+        max-width: 768px;
+    }
+    nav{
+        width: 768px;
+        height: 220px;
+    }
+    #menuBar{
+        display: grid;
+        grid-template-areas: 
+        "home search avatar";
+        grid-template-columns: 1fr 7fr 1fr;
+        width: 768px;
+        height: 220px;
+    }
+    #home{
+        grid-area: home;
+        height: 70px;
+        margin:  0 auto;
+    }
+    #search{
+       position: absolute;
+       top: 0px;
+       left: 310px;
+       width: 45%;
+       padding-top: 15px;
+    }
+    #avatar{
+        grid-area: avatar;
+        height: 70px;
+        margin: 0 auto;
+    }
+    nav ul {
+        overflow: visible;
+        position: absolute;
+        top: 120px;
+        display:flex;
+        flex-direction:row; 
+        justify-content: space-around;
+        width: 768px;
+        margin: 30px 0px;
+    }
+    header {
+        margin-top: 30px;
+    }
+    .dropdown label span, .dropdown input {
+        display: none;
+    }
+    .dropdown {
+        display: none;
+    }
+    menu{
+        position: absolute;
+        width: 768px;
+        background-color: #ffffffcb;
+        padding: 20px 0;
+    }
+    menu li a:hover{
+        background-color: #F2F2F2;
+    }
+    h1{
+        text-align: left;
+        padding-left: 20px;
+    }
+    #details.twoColumns{
+        text-align: center;
+    }
+    #details{
+        text-align: center;
+    }
+    dl{
+        display: block;
+        padding-bottom: 10px;
+    }
+    dd, dt{
+        display: inline;
+    }
+    .twoColumnsMain{
+        display: grid;
+        grid-template-areas:
+        "ingredients directions";
+        grid-template-columns: 1fr 3fr; 
+        padding-bottom: 10px;
+    }
+    .dish{
+        display: grid;
+        grid-template-areas:
+        "photo name name"
+        "photo desc desc"
+        "photo rating stars";
+        grid-template-columns: 120px 65px;
+        padding: 15px 0;
+    }
+    .twoColumns{
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+    }
+    .twoColumns:last-of-type{
+        grid-template-areas: 
+        "copyright social";
+    }
+    #copyright{
+        grid-area:copyright;
+    }
+    #social{
+        grid-area: social;
+    }
+    .invisible {
+        display: none;
+    }
+    #search input:hover, #search button:hover{
+        outline: solid 5px #7ABFBF;
+        border-radius: 5px;
+    }
+}
+@media screen and (min-width:1280px), print and (orientation:landscape){
+    body{
+        max-width: 1280px;
+    }
+    nav{
+        width: 1280px;
+        height: 120px;
+        display: grid;
+        grid-template-areas: 
+        "home menu avatar"
+        "search search search";
+        grid-template-columns: .80fr 7fr 1fr;
+    }
+    #menuBar{
+        grid-area: menu;
+        display: contents;
+    }
+    #avatar {
+        grid-area: avatar;
+    }
+    #home{
+        height: 110px;
+    }
+    nav ul{
+        top: 30px;
+        left: 300px;
+    }
+    nav li{
+        padding: 0 10px;
+    }
+    nav img{
+       height: 60px;
+    }
+    .largeScreenOrder{
+        display: grid;
+        grid-template-areas: 
+            "nav photo text";
+    }
+    menu{
+        grid-area:nav;
+        display: grid;
+        width: 120px;
+        position: relative;
+        grid-template-rows: repeat(8, 1fr);
+        border: 2px solid #EB5428;
+        margin: 0;
+        background-color: #ffffff;
+    }
+    #search {
+        width: 30%;
+        left: 475px;
+    }
+    header{
+        margin-top: 100px;
+    }
+    header h1{
+        text-align: center;
+    }
+    header img{
+        grid-area: photo;
+        width: 100%;
+    }
+    header p{
+        grid-area: text;
+        padding-top: 0;
+    }
+    header p:last-of-type{
+        padding-top:100px;
+    }
+    #details{
+        width: 1280px;
+        background-color: black;
+        color:#7ABFBF;
+        display: grid;
+        grid-template-areas:
+            "title title title title title"
+            "prep cook total author servings";
+    }
+    dt, dd{
+        display: block;
+    }
+    #details h2{
+        grid-area: title;
+    }
+    dd{
+        padding-bottom: 10px;
+    }
+    .twoColumns{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    #social{
+        grid-column: 3 / 5;
+    }
+    .dish {
+        grid-template-areas:
+            "photo photo"
+            "name name"
+            "desc desc"
+            "rating stars";
+        grid-template-columns: 65px auto;
+        margin-left: 40px;
+    }
+    .dish h3{
+        padding-top: 20px;
+    }
+    .dish img{
+        width: 80%;
+    }
+    #copyright{
+        flex-direction: row-reverse;
+        padding: 0;
+    }
+    #copyright h3{
+        position: absolute;
+    }
+}
+@media print {
+    h1, h2, h3, menu li, #social li, footer, p, dt, dd, li{
+        font-family: 'Times New Roman', Times, serif;
+    }
+    html{
+        background-color: white;
+    }
+    body, footer{
+        display: block;
+        background-color: white;
+    }
+    nav, menu, img, aside{
+        display: none;
+    }
+    header, h1, h2{
+        padding: 5px 0;
+    }
+    h2{
+        font-size: 26px;
+    }
+    header p{
+        padding-bottom: 0px;
+    }
+    @page {
+        margin: 0.5in;
+    }
+    a[href]::after{
+        content: " (" attr(href) ")"
+    }
+    .twoColumns, #social ul{
+       grid-template-columns: 1fr;
+       display: block;
+    }
+    #copyright {
+        padding-top: 5px;
+    }
+    small{
+        font-size: 14px;
+    }
+    #details h2{
+        padding-top: 5px;
+    }
+    #social svg{
+        filter: grayscale(100%);
+    }
+    #social li a{
+        color:black;
+        font-size: 10px;
+    } 
+}
+@media print and (orientation:landscape){
+    header p:last-of-type{
+        padding-top: 50px;
+    }
+
+    #copyright{
+        text-align: center;
+        display: block;
+    }
+    #details{
+        background-color: white;
+        color: black;
+    }
+}
